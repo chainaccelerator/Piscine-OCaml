@@ -1,0 +1,5 @@
+Color.cmi :
+Color.cmo : Color.cmi
+Color.cmx : Color.cmi
+main.cmo : Color.cmi
+main.cmx : Color.cmx
