@@ -1,3 +1,7 @@
+
+
+module Card :
+sig
 module Color :
 sig
     type t = Spade | Heart | Diamond | Club
@@ -17,8 +21,7 @@ sig
     val next : t -> t val previous : t -> t
 end
 
-module Card :
-sig
+
 		
 	type t
 

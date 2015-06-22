@@ -10,7 +10,7 @@
 (*                                                                            *)
 (* ************************************************************************** *)
 
-type 'a tree = Nil | Node of 'a * 'a tree * 'a tree
+type tree = Nil | Node of ('a * 'b)' * ('b, 'd) tree * 'a tree
 
 let draw_square x y size =
     if size <> 0 then

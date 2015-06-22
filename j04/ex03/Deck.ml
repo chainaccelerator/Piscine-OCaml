@@ -1,3 +1,4 @@
+module Card = struct
 module Color = struct
 
 type t = Spade | Heart | Diamond | Club
@@ -101,7 +102,6 @@ let previous t = match t with
 end
 
 
-module Card = struct
 
 
 type t = {
@@ -186,40 +186,22 @@ let isClub (t:t) = (t.color = Color.Club)
 
     
 end
-
-
+    
 type t = Card.t list
 
 let randomize (res:t) (card:Card.t) = 
-    let rand = Random.int 2 in
+    let rand = Random.int 10 in
         match res with
             | [] -> [card]
-            | h::t when rand = 0 -> h::card::t
-            | h::t when rand = 1 -> card::h::t
+            | h::t when rand = 1 || rand = 5 -> h::card::t
+            | h::t when rand = 2 || rand = 6 -> card::h::t
             | h::t -> (card::t@[h]) 
 
 let newDeck () = 
     let base = Card.all in
-        List.fold_left randomize [] base 
+        List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] (List.fold_left randomize [] base)))))))))))
 
 let drawCard self = match self with
     | [] -> invalid_arg "Failure"
     |  h::t -> (h, t)
-
-let rec toStringList self = match self with
-    | []  -> []
-    | h::t -> (Card.toString h)::toStringList t
-
-let rec toStringListVerbose self = match self with
-    | []  -> []
-    | h::t -> (Card.toStringVerbose h)::toStringListVerbose t
-
-
-let () = 
-    Random.self_init ()
-    
-
-
-
-
 
