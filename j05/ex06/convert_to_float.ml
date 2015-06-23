@@ -1,4 +1,19 @@
-et convert_to_float (a:string) =
+
+let split (str:string) =
+    let size = String.length str in 
+    let rec sp lst i = match i with
+        | i when i = size -> lst
+        | _ ->  begin try
+                    sp (lst @ [String.sub str i (String.index_from str i ',')]) ((String.index_from str i ',') + 1)
+                with
+                   | _ -> lst
+                end;
+    in
+        sp [] 0
+
+
+
+let convert_to_float (a:string) =
     begin try 
         float_of_string a
     with
@@ -11,8 +26,7 @@ et convert_to_float (a:string) =
                 let ic = open_in path in
                     while true do
                         let s = input_line ic in
-                            print_string (Array.of_list(Str.split (Str.regexp "-?.?[0-9]+") s)).(1);
-                            lst := ((Array.map convert_to_float (Array.of_list(Str.split (Str.regexp "-?.?[0-9]+") s))), 
+                             lst := ((Array.map convert_to_float (Array.of_list(split s))), 
                                 s.[(String.length s) - 1] ) ::!lst
                     done
             with
