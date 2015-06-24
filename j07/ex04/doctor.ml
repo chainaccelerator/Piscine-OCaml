@@ -32,7 +32,7 @@ print_endline "         /-\\
 		method use_sonic_screwdriver = print_endline "Whiiiiwhiiiwhiii Whiiiiwhiiiwhiii Whiiiiwhiiiwhiii" 
 		method private regenerate = _hp <- 100
 
-        method runaway = print_endline "run like a coward"
+        method runaway = print_endline "run like a coward"; self#travel_in_time 0 1999
 
         initializer print_endline "A new doctor as born"; self#regenerate
     end

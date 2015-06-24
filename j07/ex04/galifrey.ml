@@ -9,6 +9,7 @@ class galifrey (dalek_army:Dalek.dalek list) (doctor_army:Doctor.doctor list) (p
 
         	if (List.length d0) > 0 then
         	(
+                print_endline (List.hd d0)#to_string;
         		(List.hd d0)#runaway;
         		_doctor_army <- (List.tl d0)
         	)
@@ -20,7 +21,7 @@ class galifrey (dalek_army:Dalek.dalek list) (doctor_army:Doctor.doctor list) (p
         	| _ ->
        				 match da with
         			| [] -> ()
-        			| h::t -> h#exterminate (List.hd p); loop da (List.tl p) _doctor_army
+        			| h::t -> h#talk; print_endline ((List.hd p)#to_string ^ " was exterminated");h#exterminate (List.hd p); loop da (List.tl p) _doctor_army
 
 
         in
