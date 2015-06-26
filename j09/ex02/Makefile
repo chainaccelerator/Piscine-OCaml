@@ -6,16 +6,13 @@
 #    By: apantiez <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/18 11:18:52 by apantiez          #+#    #+#              #
-#    Updated: 2015/06/25 18:28:13 by apantiez         ###   ########.fr        #
+#    Updated: 2015/06/26 16:29:27 by apantiez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-RESULT    = Galifrey
-SOURCES    = people.ml \
-			 dalek.ml \
-			 doctor.ml \
-			 army.ml \
-			 galifrey.ml \
-			 main.ml
+RESULT    = a.out
+SOURCES    = ./calc.ml
 LIBS    =
 include OCamlMakefile
+
+
